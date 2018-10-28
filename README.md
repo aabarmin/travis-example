@@ -89,3 +89,15 @@ downloaded [here](https://github.com/checkstyle/checkstyle/tree/master/config).
 ```xml
 <property name="severity" value="error"/>
 ```
+
+3.3 Disabling XML reports
+
+Add the following code to `build.gradle`
+
+```groovy
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+    }
+}
+```

@@ -11,6 +11,12 @@ dependencies {
     testRuntime('org.junit.jupiter:junit-jupiter-engine:5.3.1')
 }
 
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+    }
+}
+
 checkstyle {
     toolVersion '8.14'
 }
