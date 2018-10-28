@@ -2,7 +2,7 @@
 
 ## Switching between different JDK versions at Mac OS X
 
-Add the following lines to .bash_profile at your home directory:
+Add the following lines to .bashrc at your home directory:
 
 ```bash
 alias j11="export JAVA_HOME=`/usr/libexec/java_home -v 11`; java -version"
@@ -100,4 +100,30 @@ tasks.withType(Checkstyle) {
         xml.enabled false
     }
 }
+```
+
+# Running tests with JUnit 5
+
+First, you need Gradle version at least 4.6. The following lines should be added to `build.gradle`:
+
+```groovy
+test {
+    useJUnitPlatform()
+}
+```
+
+# Updating Gradle version
+
+Add the following task to `build.gradle`
+
+```groovy
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.8'
+}
+```
+
+And then execute the following command twice:
+
+```bash
+./gradlew wrapper --gradle-version=4.8
 ```
