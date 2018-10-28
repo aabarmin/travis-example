@@ -127,3 +127,58 @@ And then execute the following command twice:
 ```bash
 ./gradlew wrapper --gradle-version=4.8
 ```
+
+# Adding JaCoCo to Gradle project
+
+1. Add `jacoco` plugin to `build.gradle`:
+
+```groovy
+apply plugin: 'jacoco'
+```
+
+2. Add plugin configuration to `build.gradle`:
+
+```groovy
+jacoco {
+    toolVersion '0.8.2'
+    reportsDir = file("$buildDir/reports/jacoco")
+}
+```
+
+3. Add reporting configuration to `build.gradle`:
+
+```groovy
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.enabled true
+    }
+}
+```
+
+4. Add coverage verification configuration to `build.gradle`:
+
+```groovy
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.8
+            }
+        }
+    }
+}
+```
+
+5. Run the following task to get coverage report (`test` task should be executed prior):
+
+```bash
+./gradlew jacocoTestReport
+```
+
+6. Run the following task to verify the coverage:
+
+```bash
+./gradlew jacocoTestCoverageVerification
+```

@@ -20,3 +20,4 @@ jobs:
     language: java
     script:
      - ./gradlew jacocoTestReport
+     - ./gradlew jacocoTestCoverageVerification
