@@ -4,9 +4,15 @@ before_script:
 jobs:
  include:
   - stage: "Initial assemble"
+    language: java
     script:
      - ./gradlew assemble
   - stage: "Style Checks"
+    language: java
     script:
       - ./gradlew checkstyleMain
       - ./gradlew checkstyleTest
+  - stage: "Tests"
+    language: java
+    script:
+      - ./gradlew test
