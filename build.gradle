@@ -52,3 +52,12 @@ jacocoTestCoverageVerification {
         }
     }
 }
+
+task buildAll {
+    dependsOn ':test'
+    dependsOn ':checkstyleMain'
+    dependsOn ':checkstyleTest'
+    dependsOn ':jacocoTestReport'
+    dependsOn ':jacocoTestCoverageVerification'
+    dependsOn ':jar'
+}
