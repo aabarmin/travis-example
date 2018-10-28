@@ -102,7 +102,7 @@ tasks.withType(Checkstyle) {
 }
 ```
 
-# Running tests with JUnit 5
+## Running tests with JUnit 5
 
 First, you need Gradle version at least 4.6. The following lines should be added to `build.gradle`:
 
@@ -112,7 +112,7 @@ test {
 }
 ```
 
-# Updating Gradle version
+## Updating Gradle version
 
 Add the following task to `build.gradle`
 
@@ -128,7 +128,7 @@ And then execute the following command twice:
 ./gradlew wrapper --gradle-version=4.8
 ```
 
-# Adding JaCoCo to Gradle project
+## Adding JaCoCo to Gradle project
 
 1. Add `jacoco` plugin to `build.gradle`:
 
@@ -181,4 +181,29 @@ jacocoTestCoverageVerification {
 
 ```bash
 ./gradlew jacocoTestCoverageVerification
+```
+
+## Adding PMD to project
+
+To add PMD static analysis the following steps need to be executed:
+
+1. Add plugin to `build.gradle`:
+
+```groovy
+apply plugin: 'pmd'
+```
+
+2. Set the newest plugin version at `build.gradle`:
+
+```groovy
+pmd {
+    toolVersion = '6.7.0'
+}
+```
+
+3. Execute gradle tasks:
+
+```bash
+./gradlew pmdMain
+./gradlew pmdTest
 ```

@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'checkstyle'
 apply plugin: 'jacoco'
+apply plugin: 'pmd'
 
 repositories {
     jcenter()
@@ -53,11 +54,17 @@ jacocoTestCoverageVerification {
     }
 }
 
+pmd {
+    toolVersion = '6.7.0'
+}
+
 task buildAll {
     dependsOn ':test'
     dependsOn ':checkstyleMain'
     dependsOn ':checkstyleTest'
     dependsOn ':jacocoTestReport'
     dependsOn ':jacocoTestCoverageVerification'
+    dependsOn ':pmdMain'
+    dependsOn ':pmdTest'
     dependsOn ':jar'
 }

@@ -10,12 +10,17 @@ jobs:
   - stage: "Style Checks"
     language: java
     script:
-      - ./gradlew checkstyleMain
-      - ./gradlew checkstyleTest
+     - ./gradlew checkstyleMain
+     - ./gradlew checkstyleTest
   - stage: "Tests"
     language: java
     script:
-      - ./gradlew test
+     - ./gradlew test
+  - stage: "Static Analysis"
+    language: java
+    script:
+     - ./gradlew pmdMain
+     - ./gradlew pmdTest
   - stage: "Test Coverage"
     language: java
     script:
