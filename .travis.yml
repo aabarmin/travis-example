@@ -1,5 +1,12 @@
 language: java
 before_script:
   - chmod +x gradlew
-script:
-  - ./gradlew assemble
+jobs:
+ include:
+  - stage: "Initial assemble"
+    script:
+     - ./gradlew assemble
+  - stage: "Style Checks"
+    script:
+      - ./gradlew checkstyleMain
+      - ./gradlew checkstyleTest
