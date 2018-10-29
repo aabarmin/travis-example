@@ -24,3 +24,9 @@ hs_err_pid*
 
 # IntelliJ files
 .idea
+
+# Gradle
+.gradle
+/build/
+gradle-app.settings
+!gradle-wrapper.jar
