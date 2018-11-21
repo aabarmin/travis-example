@@ -207,3 +207,19 @@ pmd {
 ./gradlew pmdMain
 ./gradlew pmdTest
 ```
+
+## Change file permissions in git
+
+Sometimes it's necessary to add execution bit to some file. It could be done at build stage in the following way:
+
+```bash
+chmod +x ./gradlew
+```
+
+But in case of `operation not permitted` exception it won't work. The following workaround exists:
+
+```bash
+git update-index --chmod=+x gradlew
+git add .
+git commit
+```
