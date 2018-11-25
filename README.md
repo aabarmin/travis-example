@@ -223,3 +223,24 @@ git update-index --chmod=+x gradlew
 git add .
 git commit
 ```
+
+## .gitignore for Gradle
+
+If you are using Gradle to build your software, the following lines might be added to the .gitignore file:
+
+```
+.gradle
+/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+```
